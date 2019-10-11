@@ -1,0 +1,11 @@
+#headerContainer {
+    background-color: steelblue;
+    height: 200px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 90px;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    width: 100%;
+    
+}
