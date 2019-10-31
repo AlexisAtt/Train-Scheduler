@@ -21,8 +21,8 @@ var database = firebase.database();
   var destination = "";
   var trainTime = "";
   var frequency = "";
-  //var minutesAway = "";
-
+  var minutesAway = 0;
+ 
 
 
   //Button Click
@@ -34,6 +34,7 @@ var database = firebase.database();
       destination = $("#exampleInputDestination1").val().trim();
       trainTime = $("#exampleInputTime1").val().trim();
       frequency = $("#exampleInputFrequency1").val().trim();
+      minutesAway = $("#minutes-display").val().trim();
 
 
       database.ref().push({
@@ -41,7 +42,6 @@ var database = firebase.database();
           destination: destination,
           trainTime: trainTime,
           frequency: frequency,
-
       });
   });
 
@@ -54,7 +54,19 @@ var database = firebase.database();
           $("<td>").text(ss.destination),
           $("<td>").text(ss.trainTime),
           $("<td>").text(ss.frequency),
+          $("<td>").text(minutesAway),
+
           );
         $("#tableRow").append(newRow);
   })
 });
+
+function updatedTime() {
+  var minutesAway = moment().format("HH:mm:ss");
+  newTime = trainTime-frequency
+  $("#minutes-display").text(newTime);
+}
+
+updatedTime();
+setInterval(newTime, 1000);
+setInterval()
